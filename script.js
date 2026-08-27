@@ -2,11 +2,10 @@
   "use strict";
 
   // ---------- state ----------
-  let roundWords = [];      // selected words for this round: {oe, lit, image, context, id, placedImage}
+  let roundWords = [];      // selected words for this round: {oe, lit, image, context, id, placedImage, wasCorrect}
   let roundImages = [];     // distinct IMAGES used this round
   let selectedTileId = null; // id of tile currently selected via click (touch/keyboard fallback)
   let checked = false;
-  let revealed = false;
 
   // ---------- elements ----------
   const setupScreen = document.getElementById("setup-screen");
@@ -23,7 +22,6 @@
   const resultLabel = document.getElementById("result-label");
   const checkBtn = document.getElementById("check-btn");
   const retryBtn = document.getElementById("retry-btn");
-  const revealBtn = document.getElementById("reveal-btn");
   const newWordsBtn = document.getElementById("new-words-btn");
 
   // ---------- setup screen ----------
@@ -82,13 +80,12 @@
   // ---------- game lifecycle ----------
   function startGame(n) {
     const picked = shuffle(WORD_POOL).slice(0, n);
-    roundWords = picked.map((w, i) => ({ ...w, id: i, placedImage: null }));
+    roundWords = picked.map((w, i) => ({ ...w, id: i, placedImage: null, wasCorrect: null }));
     const usedImageIds = [...new Set(roundWords.map((w) => w.image))];
     roundImages = shuffle(usedImageIds.map(imageById));
 
     selectedTileId = null;
     checked = false;
-    revealed = false;
 
     setupScreen.classList.add("hidden");
     gameScreen.classList.remove("hidden");
@@ -96,7 +93,6 @@
     checkBtn.classList.remove("hidden");
     checkBtn.disabled = false;
     retryBtn.classList.add("hidden");
-    revealBtn.classList.add("hidden");
     resultLabel.textContent = "";
     resultLabel.className = "result-label";
 
@@ -104,14 +100,15 @@
   }
 
   function resetPlacements() {
-    roundWords.forEach((w) => (w.placedImage = null));
+    roundWords.forEach((w) => {
+      w.placedImage = null;
+      w.wasCorrect = null;
+    });
     selectedTileId = null;
     checked = false;
-    revealed = false;
     checkBtn.classList.remove("hidden");
     checkBtn.disabled = false;
     retryBtn.classList.add("hidden");
-    revealBtn.classList.add("hidden");
     resultLabel.textContent = "";
     resultLabel.className = "result-label";
     renderAll();
@@ -189,18 +186,12 @@
     if (word.id === selectedTileId) el.classList.add("selected");
 
     if (checked) {
-      if (placed) {
-        const isCorrect = word.placedImage === word.image;
-        el.classList.add(isCorrect ? "correct" : "incorrect");
-      } else {
-        el.classList.add("incorrect");
-      }
-      if (revealed) {
-        const meaning = document.createElement("span");
-        meaning.className = "tile-meaning";
-        meaning.textContent = word.lit;
-        el.appendChild(meaning);
-      }
+      el.classList.add("correct");
+      if (!word.wasCorrect) el.classList.add("correct-hint");
+      const meaning = document.createElement("span");
+      meaning.className = "tile-meaning";
+      meaning.textContent = word.lit;
+      el.appendChild(meaning);
       el.disabled = false; // still clickable to inspect, but placement is locked separately
     }
 
@@ -255,24 +246,22 @@
   // ---------- checking ----------
   checkBtn.addEventListener("click", () => {
     checked = true;
-    const correct = roundWords.filter((w) => w.placedImage === w.image).length;
+    roundWords.forEach((w) => {
+      w.wasCorrect = w.placedImage === w.image;
+    });
+    const correct = roundWords.filter((w) => w.wasCorrect).length;
     const total = roundWords.length;
     resultLabel.textContent = correct + " / " + total + " correct";
     resultLabel.className = "result-label " + (correct === total ? "good" : "bad");
 
+    // snap any wrong or unanswered word onto its correct image
+    roundWords.forEach((w) => {
+      if (!w.wasCorrect) w.placedImage = w.image;
+    });
+
     checkBtn.classList.add("hidden");
     retryBtn.classList.remove("hidden");
-    if (correct < total) revealBtn.classList.remove("hidden");
 
-    renderAll();
-  });
-
-  revealBtn.addEventListener("click", () => {
-    revealed = true;
-    roundWords.forEach((w) => {
-      if (w.placedImage !== w.image) w.placedImage = w.image;
-    });
-    revealBtn.classList.add("hidden");
     renderAll();
   });
 
