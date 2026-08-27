@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" role="img" aria-label="WOLF placeholder">
+  <rect width="400" height="300" fill="#55524a"/>
+  <rect x="6" y="6" width="388" height="288" fill="none" stroke="#eee9df" stroke-width="2" stroke-dasharray="10 8" opacity="0.5"/>
+  <text x="200" y="150" font-size="96" text-anchor="middle" dominant-baseline="central">🐺</text>
+  <text x="200" y="252" font-family="Georgia, serif" font-size="22" font-weight="bold" letter-spacing="2" fill="#eee9df" text-anchor="middle">WOLF</text>
+  <text x="200" y="278" font-family="Georgia, serif" font-size="12" fill="#eee9df" opacity="0.75" text-anchor="middle">placeholder image</text>
+</svg>
