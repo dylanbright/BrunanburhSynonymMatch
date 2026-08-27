@@ -187,7 +187,6 @@
 
     if (checked) {
       el.classList.add("correct");
-      if (!word.wasCorrect) el.classList.add("correct-hint");
       const meaning = document.createElement("span");
       meaning.className = "tile-meaning";
       meaning.textContent = word.lit;

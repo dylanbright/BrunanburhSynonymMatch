@@ -22,11 +22,10 @@ then visit `http://localhost:8000`.
 - **Game screen** — drag a word tile onto the image you think matches its
   meaning (or tap a word, then tap an image, as a touch/click-friendly
   alternative). Tap a placed word to send it back to the word bank.
-- **Check Answers** — scores the round, then snaps any wrong or unanswered
-  word onto its correct image and shows the literal Old English meaning for
-  every word. Words you got right yourself are marked solid green; words
-  that got auto-corrected show a dashed outline, so a missed round doubles
-  as a study pass.
+- **Check Answers** — scores the round (shown as "X / N correct"), then
+  snaps any wrong or unanswered word onto its correct image and shows the
+  literal Old English meaning for every word, so a missed round doubles as
+  a study pass.
 - **Try Again** replays the same word set; **New Words** returns to setup
   for a fresh random draw.
 
