@@ -296,6 +296,13 @@ h1{
   opacity:.85;
   margin-top:.1rem;
 }
+.tile .tile-note{
+  display:block;
+  font-style:italic;
+  font-size:.66rem;
+  opacity:.7;
+  margin-top:.15rem;
+}
 
 .tile.dragging{ opacity:.35; }
 

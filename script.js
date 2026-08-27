@@ -191,6 +191,12 @@
       meaning.className = "tile-meaning";
       meaning.textContent = word.lit;
       el.appendChild(meaning);
+      if (!word.wasCorrect) {
+        const note = document.createElement("span");
+        note.className = "tile-note";
+        note.textContent = "shown for you — not what you placed";
+        el.appendChild(note);
+      }
       el.disabled = false; // still clickable to inspect, but placement is locked separately
     }
 
