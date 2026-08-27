@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Brunanburh Word Match</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="page">
+
+  <header class="site-header">
+    <p class="eyebrow">The Battle of Brunanburh · a word–image game</p>
+    <h1>Brunanburh Word Match</h1>
+    <p class="dek">The Brunanburh poet almost never repeats a word — a "warrior" gets ten different names, a "battle" gets a dozen. Drag each Old English word onto the image that shows what it means.</p>
+  </header>
+
+  <!-- SETUP SCREEN -->
+  <section id="setup-screen" class="panel">
+    <h2>Choose how many words</h2>
+    <p class="muted">Words are drawn at random from a pool of <span id="pool-size"></span>. Several words can be true synonyms — they'll share the same image.</p>
+
+    <div class="setup-row">
+      <label for="word-count">Number of words</label>
+      <input type="range" id="word-count-range" min="4" max="10" value="10" step="1">
+      <output id="word-count-out">10</output>
+    </div>
+
+    <div class="preset-row" id="preset-row"></div>
+
+    <button id="start-btn" class="btn btn-primary">Start Game</button>
+  </section>
+
+  <!-- GAME SCREEN -->
+  <section id="game-screen" class="panel hidden">
+    <div class="game-toolbar">
+      <div class="score-box">
+        <span id="progress-label">0 / 0 placed</span>
+        <span id="result-label" class="result-label"></span>
+      </div>
+      <div class="toolbar-buttons">
+        <button id="check-btn" class="btn btn-primary">Check Answers</button>
+        <button id="retry-btn" class="btn btn-secondary hidden">Try Again</button>
+        <button id="reveal-btn" class="btn btn-secondary hidden">Reveal Answers</button>
+        <button id="new-words-btn" class="btn btn-ghost">New Words</button>
+      </div>
+    </div>
+
+    <p class="instructions">Drag a word onto the image it describes — or tap a word to select it, then tap an image to place it. Tap a placed word to send it back.</p>
+
+    <div id="image-grid" class="image-grid"></div>
+
+    <div class="word-bank-wrap">
+      <h3 class="word-bank-title">Word Bank</h3>
+      <div id="word-bank" class="word-bank"></div>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <p>Words and clusters drawn from a lexical study of <em>The Battle of Brunanburh</em>. Images are placeholders — drop your own files into <code>images/</code> using the same filenames to replace them.</p>
+  </footer>
+
+</div>
+
+<script src="words.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
