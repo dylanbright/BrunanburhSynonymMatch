@@ -52,7 +52,7 @@ const WORD_POOL = [
   { oe: "bregu", lit: "prince, chieftain", image: "king", context: "“Norðmanna bregu”" },
 
   // Ship
-  { oe: "scipflotan", lit: "ship-floaters, seamen", image: "ship", context: "“Sceotta leoda and scipflotan”" },
+  { oe: "scipflotan", lit: "ship-floaters, seamen", image: "sailor", context: "“Sceotta leoda and scipflotan”" },
   { oe: "lides", lit: "ship's", image: "ship", context: "“lides bosme” — ship's bosom" },
   { oe: "cnear", lit: "small ship", image: "ship", context: "“cread cnear on flot”" },
   { oe: "negledcnearrum", lit: "nailed ships", image: "ship", context: "“Norþmen negledcnearrum”" },
@@ -79,6 +79,7 @@ const IMAGES = [
   { id: "fallen", name: "Fallen in Battle", src: "images/fallen.svg" },
   { id: "king", name: "King / Ruler", src: "images/king.svg" },
   { id: "ship", name: "Ship", src: "images/ship.svg" },
+  { id: "sailor", name: "Sailor", src: "images/sailor.svg" },
   { id: "flight", name: "Flight / Fleeing", src: "images/flight.svg" },
   { id: "raven", name: "Raven", src: "images/raven.svg" },
   { id: "eagle", name: "Eagle", src: "images/eagle.svg" },
