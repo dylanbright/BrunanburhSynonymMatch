@@ -19,7 +19,7 @@ const WORD_POOL = [
   { oe: "sæcce", lit: "battle, strife", image: "battle", context: "“geslogon æt sæcce”" },
   { oe: "campe", lit: "battle, combat", image: "battle", context: "“æt campe oft” — often in battle" },
   { oe: "wiges", lit: "war, battle", image: "battle", context: "“wiges sæd”" },
-  { oe: "wiga", lit: "war, battle", image: "battle", context: "“wiges hremige”" },
+  { oe: "wiges", lit: "war, battle", image: "battle", context: "“wiges hremige”" },
   { oe: "gefeohte", lit: "fight", image: "battle", context: "“fæge to gefeohte” — fated to the fight" },
   { oe: "guðe", lit: "war, battle", image: "battle", context: "“giungne æt guðe”" },
   { oe: "hondplegan", lit: "hand-play", image: "battle", context: "“heardes hondplegan”" },
@@ -64,7 +64,7 @@ const WORD_POOL = [
 
   // Beasts of Battle
   { oe: "sweartan hræfn", lit: "the black raven", image: "raven", context: "“þone sweartan hræfn”" },
-  { oe: "guðhafoc", lit: "war-hawk", image: "eagle", context: "“grædigne guðhafoc”" },
+  { oe: "guðhafoc", lit: "war-hawk (epithet for the eagle)", image: "eagle", context: "“grædigne guðhafoc”" },
   { oe: "earn", lit: "eagle", image: "eagle", context: "“earn æftan hwit”" },
   { oe: "wulf", lit: "wolf", image: "wolf", context: "“wulf on wealde”" },
 ];
