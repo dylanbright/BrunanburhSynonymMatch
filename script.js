@@ -186,7 +186,7 @@
     if (word.id === selectedTileId) el.classList.add("selected");
 
     if (checked) {
-      el.classList.add("correct");
+      el.classList.add(word.wasCorrect ? "correct" : "incorrect");
       const meaning = document.createElement("span");
       meaning.className = "tile-meaning";
       meaning.textContent = word.lit;

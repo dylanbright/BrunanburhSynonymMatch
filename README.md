@@ -25,7 +25,10 @@ then visit `http://localhost:8000`.
 - **Check Answers** — scores the round (shown as "X / N correct"), then
   snaps any wrong or unanswered word onto its correct image and shows the
   literal Old English meaning for every word, so a missed round doubles as
-  a study pass.
+  a study pass. Words you placed correctly yourself are green; words the
+  game had to correct for you are red, with a small note ("shown for you —
+  not what you placed") so it's clear that's an answer key, not a claim
+  the word is misclassified.
 - **Try Again** replays the same word set; **New Words** returns to setup
   for a fresh random draw.
 
